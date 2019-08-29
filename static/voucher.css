@@ -1,0 +1,126 @@
+.wrapper { width: 1156px; margin-left: 16px;margin-top: 16px;border: 1px solid #cfcfcf;background: #fff; }
+#toolBottom{padding: 0 45px 15px 0;}
+.ui-combo-wrap .input-txt, .ui-droplist-wrap .list-item { font-size: 12px; }
+.ui-datepicker-input { font-size: 12px; }
+/*voucher_wrap*/
+#toolTop { padding: 0px 45px; margin: 15px 0;}
+.voucher_wrap {padding: 0 15px; width: 1188px; background: #fff; position: relative; padding-top: 0; }
+.voucher_tit { display: inline; margin-right: 20px; font: 28px/1.8 "Microsoft Yahei"; text-align: center; text-shadow: 1px 1px 1px rgba(0,0,0,0.2); }
+.voucher_top { padding-top: 10px; margin-bottom: 10px; overflow: hidden; zoom: 1; }
+.voucher_top .date_wrap { display: inline-block; *display:inline; width: 157px;
+zoom: 1; margin-left: 8px; vertical-align: middle; }
+.voucher_top .mark_wrap, .voucher_top .tit_wrap { float: left; }
+.voucher_top .mark_wrap .txt { display: inline-block; *display:inline;
+zoom: 1; line-height: 30px; vertical-align: middle; }
+.voucher_top .tit_wrap { margin: -20px 0 0 90px; }
+.voucher_top .attach_wrap { float: right;margin-right: 15px; }
+.voucher_top .attach_wrap .ui-input { width: 35px; }
+#vch_mark, #skip-mark-select { display: inline-block; *display:inline; zoom: 1; }
+/*voucher*/
+.voucher { border-collapse: collapse; margin: 0 0 10px 0px; }
+.voucher th, .voucher td { border: 1px solid #666; }
+.voucher thead th { border-top-width:2px; }
+.voucher tfoot tr:last-child td { border-bottom-width:2px; }
+.voucher .col_summary, .voucher .col_total{ border-left-width:2px;}
+.voucher .col_credit{ border-right-width:2px;}
+.col_quantity, .col_currency{ display:none; }
+.voucher td.col_debite, .voucher td.col_credit, .voucher td.col_money, .money_unit { background-image: url('./images/money_rp.png'); background-repeat: repeat-y; }
+.voucher.voucher-special td.col_debite, .voucher.voucher-special td.col_credit, .voucher.voucher-special td.col_money,
+.voucher-special .money_unit { background-image: none; background-repeat: repeat-y; }
+.voucher.voucher-special .col_debite .cell_val, .voucher.voucher-special .col_credit .cell_val{letter-spacing: 0px; right: 0;}
+.voucher.voucher-special .money_unit{display: none;}
+
+.voucher th { height: 48px; color: #555555; font-size: 14px; text-align: center; font-weight: bold; overflow: hidden; }
+.voucher .col_money{ font-size:12px; }
+.voucher .col_money .tit { display: block; height: 25px; line-height: 25px; }
+.voucher .money_unit { height: 22px; line-height: 22px; font-weight: normal; border-top: 1px solid #dadada; text-align: center; }
+.voucher .money_unit span { float: left; display: inline; width: 19px; height: 100%; margin-right: 1px; background-color: #fff; }
+.voucher .money_unit .last { margin-right: 0; width:18px;}
+.voucher td { height: 60px; }
+/*å¢žå‡è¡Œ*/
+.operate { visibility:hidden; width:23px; }
+.voucher .col_operate { text-align: center; width: 23px; border: 1px solid #FFF; border-right: 1px solid #ccc; }
+.voucher .col_operate a { display: block; width: 20px; height: 20px;vertical-align: middle; font-size: 20px;}
+.voucher .col_operate a:hover { color: blue;}
+.voucher .col_operate .del { margin-top: 5px; background-position: -128px -96px; }
+.voucher .col_operate .del:hover { background-position: -128px -112px; }
+
+.voucher .col_summary .cell_val, .voucher .col_subject .cell_val { padding-left:5px; font-size: 14px; }
+.voucher .col_subject .cell_val span{ font-size:12px; }
+.edit_summary, .edit_money, .edit_subject { float: left; outline: none; resize: none;border: 1px solid #3CBAFF;height: 50px; padding: 4px; overflow: hidden; line-height:50px\9; }
+.edit_summary{
+    padding: 0px;
+}
+/*æ‘˜è¦*/
+.col_summary .cell_val { width: 241px; word-break: break-all; word-wrap: break-word; }
+.edit_summary { width: 244px; font-size: 14px;position: relative;}
+.voucher tbody .col_summary { border-right: 0; }
+/*ç§‘ç›®*/
+.voucher tbody .col_subject { border-right: 0; }
+.subject-dtl {position: relative;top:0;bottom: 0;height: 100%;width: 295px;display: table;}
+.col_subject .cell_val { width: 230px; word-break : break-all; word-wrap : break-word; }
+.edit_subject { width: 293px; padding-right: 26px; margin-right: -30px; font-size: 14px; position: relative; }
+.subject_val{line-height: 22px;height: 22px;margin: auto;vertical-align: middle;display: table-cell;}
+.subject_val p{max-height: 60px;}
+
+.col_option .option { visibility:hidden; position: relative; width:30px; }
+.voucher .col_option { border-left: 0; }
+.voucher .col_option { width: 30px; text-align: center; }
+.voucher .col_option a:hover { color: #555;text-decoration: underline;}
+#selSub { margin-bottom: 10px; }
+.col_option .option .selSub, .col_option .option .selSummary/*, .col_option .option .balance */{ display: block; width: 26px; height: 26px; cursor: pointer; color: #aaa; text-align: center; line-height: 26px; margin:0 auto; }
+.voucher .entry_item:hover{
+    cursor: pointer;
+}
+.col_option .show { visibility:visible; }
+.col_option .show .selSub { display: block; }
+
+.voucher .col_debite, .voucher .col_credit, .voucher .col_money { width: 220px; }
+.voucher .col_debite .cell_val, .voucher .col_credit .cell_val { overflow: hidden; font-family: 'tahoma'; font-weight: bold; font-size: 14px; letter-spacing: 11px; overflow: hidden; position: relative; right: -5px; *right: 4px;
+text-align: right; }
+.money-negative{color:#dd4e4e;}
+
+.edit_money { font-family: Verdana, Geneva, sans-serif; font-size: 20px; width: 208px; text-align: right; overflow: hidden; ime-mode: disabled; }
+
+.voucher th.col_quantity,.voucher th.col_currency{ font-size:14px; }
+
+
+.curr_val .mb8{ margin-bottom:3px; }
+
+.curr_val .ui-combo-wrap{ height:22px; margin-right:3px; }
+.curr_val .ui-combo-wrap .trigger{ background-position: 0 -18px; }
+.curr_val .ui-combo-wrap .input-txt{ width:33px; height:14px; padding:4px 2px;}
+.curr_val select{ }
+.rate, .original{ width:42px; height:14px; padding:0px 2px; border:none; border-bottom:1px solid #3CBAFF; }
+.original{ width:70px;}
+
+.quantity_val{ width:104px; color:#aaa; padding:0 3px; }
+
+.quantity_val .mb8{ margin-bottom:3px; }
+.quantity,.unit-price{ width:54px; height:14px; padding:0 2px; border:none; border-bottom:1px solid #ccc; }
+.unit-price{ width:70px;}
+
+
+.voucher tbody tr.current { background: #f8f8f8; }
+.voucher tbody tr.current .col_operate { background-color: #fff; }
+.voucher tbody tr.current .operate { visibility:visible; }
+
+.voucher tbody tr.current .curBalance { visibility:visible; }
+
+
+.voucher tbody tr.edit-row .curBalance { visibility:visible; }
+
+.voucher .col_total { padding: 0 10px; }
+.voucher .col_total { font-size: 14px; font-weight: bold; }
+
+.vch_ft { font-size: 14px; margin-bottom: 10px}
+
+#skip-btn { margin-right: 0 }
+#skip-period-select { width: 20px; }
+#toolTop .dn{ display:none; }
+
+#keyboardshow{ position:relative; }
+
+#imgKeyBoard{ position: absolute; z-index: 100; right:10px; top: 24px; display:none; }
+
+.mod-toolbar-top .more-operate-con.con{left: 0; width: 145px;}
