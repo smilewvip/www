@@ -1,4 +1,6 @@
 import HelloWorld from '../HelloWorld'
+import clientManage from '../../views/clientManage'
+
 export const menusList=[{
 						name: "客户管理",
 						index: '1',
@@ -6,7 +8,7 @@ export const menusList=[{
 						child: [{
 							name: "客户管理",
 							index: "1-1",
-							component: HelloWorld,
+							component: clientManage,
 						}]
 					},
 					{

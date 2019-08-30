@@ -38,17 +38,12 @@
 					</el-menu>
 				</el-aside>
 				<el-container>
-					<el-main>
-						<!--<el-tabs v-model="TabsValue" type="card" closable @tab-remove="removeTab" @tab-click="clickTab">
-							<el-tab-pane label="首页" name="first" :closable='false'>欢迎进入财务系统</el-tab-pane>
-							<el-tab-pane v-for="(item, index) in Tabs" :key="item.name" :label="item.title" :name="item.name">
-								<tab-component :index="index" :name="index"></tab-component>
-							</el-tab-pane>
-						</el-tabs>-->
-						<el-breadcrumb separator-class="el-icon-arrow-right">
-						  <el-breadcrumb-item :to="{ path: '/home' }"><i class="el-icon-s-home"></i>首页</el-breadcrumb-item>
-						</el-breadcrumb>
-						<el-divider style='margin: 10px 0;'></el-divider>
+					<el-main style='padding: 0;'>
+						<div style="padding: 10px 10px;border-bottom: 1px solid #e6e6e6;color: #05a5a5;">
+							<span  @click="backMenu"><i class="el-icon-s-home"></i></span>
+							{{TabsValue}}
+						</div>
+						<tab-component></tab-component>
 					</el-main>
 				</el-container>
 			</el-container>
@@ -58,12 +53,9 @@
 
 <script>
 	import Vue from 'vue'
-	import Element from 'element-ui'
-	import 'element-ui/lib/theme-chalk/index.css'
 	import {menusList} from '../components/menu'
+	import HelloWorld from '../components/HelloWorld'
 	import { GetEmpStoreList, LoginOut, SwitchStore } from '../service/getData'
-	Vue.use(Element)
-	Vue.prototype.menuTitle=''
 	export default {
 		inject: ['reload'],
 		data: function() {
@@ -77,8 +69,12 @@
 				activeIndex: '',
 				active: true,
 				tabIndex: 1,
-				TabsValue:sessionStorage.getItem('menuTitle') ||'first',
+				TabsValue:'首页',
 				Tabs: [],
+				TabsList:{
+					title:'首页',
+					content:HelloWorld
+				},
 				loginData: {
 					token: localStorage.getItem('loginAuthorization')
 				},
@@ -98,40 +94,19 @@
 			var tabComponent = Vue.component('tab-component', {
 				name: "tab-component",
 				render: function(h) {
-					var comp = _this.Tabs[this.index].content
+					var comp = _this.TabsList.content
 					return h(comp, {
 						nativeOn: {
 							click: function(event) {
-								//console.log(event,"数据")
-								if(event.target.tagName == 'A' && event.target.className == 'item') {
-									sessionStorage.code = event.target.dataset.code
-									sessionStorage.type = event.target.dataset.type
-									_this.Tabs.push({
-										title: event.target.innerText,
-										name: event.target.dataset.code,
-										content: customList,
-									})
-									//_this.TabsValue = event.target.dataset.code
-									sessionStorage.menuTitle= event.target.dataset.code
-									
-									
-								}
 							}
 						},
 					})
 				},
-				props: {
-					index: {
-						type: Number,
-						required: true
-					}
-				}
 
 			})
 		},
 		mounted() {
 			var _this = this
-			console.log(localStorage.getItem('employeeName'), '员工名字')
 			GetEmpStoreList(_this.data).then(res => {
 				console.log(res, "门店")
 				if(res.IsSuccess) {
@@ -154,75 +129,20 @@
 		},
 		methods: {
 			addTab(menu) {
-				var exist = false
-				for(var i = 0; i < this.Tabs.length; i++) {
-					if(menu.name == this.Tabs[i].name) {
-						exist = true
-						break
-					}
-				}
-				if(exist == true) {
-					this.TabsValue = menu.name
-					return
-				}
-				this.Tabs.push({
+				this.TabsValue = menu.name
+				this.TabsList={
 					title: menu.name,
 					name: menu.name,
 					content: menu.component
-				})
-				this.TabsValue = menu.name
-
-			},
-			clickTab(targetName) {
-				console.log(targetName, "0000")
-				this.menus.forEach((menu, i) => {
-					if(menu.secondLevelMenu) {
-						menu.secondLevelMenu.forEach((secondMenu, index) => {
-							if(secondMenu.name === targetName.name) {
-								this.activeIndex = secondMenu.index
-							}
-						})
-					}
-				})
-				if(targetName.name === 'first') {
-					this.activeIndex = ''
 				}
 			},
-			removeTab(targetName) {
-				let tabs = this.Tabs;
-				let activeName = this.TabsValue;
-				if(activeName === targetName) {
-					tabs.forEach((tab, index) => {
-						if(tab.name === targetName) {
-							let nextTab = tabs[index + 1] || tabs[index - 1];
-							if(nextTab) {
-								activeName = nextTab.name;
-							} else {
-								activeName = ''
-							}
-						}
-					});
+			backMenu(){
+				this.TabsValue = '首页'
+				this.TabsList={
+					title:'首页',
+					content:HelloWorld
 				}
-				this.menus.forEach((menu, i) => {
-					if(menu.secondLevelMenu) {
-						menu.secondLevelMenu.forEach((secondMenu, index) => {
-							if(secondMenu.name === activeName) {
-								this.activeIndex = secondMenu.index
-							} else if(activeName === "") {
-								this.activeIndex = ''
-							}
-						})
-					}
-				})
-				if(activeName) {
-					this.TabsValue = activeName;
-				} else {
-					this.TabsValue = 'first'
-				}
-
-				this.Tabs = tabs.filter(tab => tab.name !== targetName);
 			},
-
 			storeChange(command) {
 				//console.log(command,"09090")
 				let obj = {};

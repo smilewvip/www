@@ -10,6 +10,7 @@ import VueRouter from 'vue-router'
 import {routerMode} from './config/env'
 import routeConfig from './router-config'
 import defines  from './config/global'
+import './element-variables.scss'
 
 Vue.use(Element)
 
