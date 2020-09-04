@@ -19,7 +19,7 @@
     "js-md5": "^0.4.2",
     "mint-ui": "^2.2.13",
     "sass-loader": "^4.1.1",
-    "showdown": "^1.6.4",
+    "showdown": "^1.9.1",
     "signalr": "^2.2.3",
     "vee-validate": "^2.0.0-beta.17",
     "vue": "^2.5.16",
